@@ -16,9 +16,9 @@
                 'poppins': ['Poppins', 'sans-serif'],
             },
             container: {
-      center: true,
-      padding: '16px',
-    },
+                center: true,
+                padding: '16px',
+            },
             extend: {
               colors: {
                 primary: '#14b8a6',
@@ -148,6 +148,94 @@
       #dark-toggle:checked ~ label div.toggle-circle {
         transform: translateX(12px);
       }
+
+      .text-container{
+            animation: animasiContainer 3s ease ;
+        }
+
+        @keyframes animasiContainer {
+            0%{
+                transform: translateX(-300px);
+            }
+            50%{
+                transform: translateX(0);
+            }
+        }
+
+        .image-container{
+            animation: animasiContainerImage 4s ease ;
+        }
+
+        @keyframes animasiContainerImage {
+            0%{
+                transform: translateX(200px);
+            }
+            50%{
+                transform: translateX(0);
+            }
+        }
+
+        .nav-animasi{
+            animation: animasiContainerNav 3s ease ;
+        }
+
+        @keyframes animasiContainerNav {
+            0%{
+                transform: translateY(-300px);
+            }
+            50%{
+                transform: translateY(0);
+            }
+        }
+
+        .text-container{
+            animation: animasiContainer 2s ease ;
+        }
+
+        @keyframes animasiContainer {
+            0%{
+                transform: translateX(-300px);
+            }
+            50%{
+                transform: translateX(0);
+            }
+        }
+        .btn{
+            border: 1px solid #14b8a6;
+            background: none;
+            transition: 0.8s;
+            position: relative;
+            overflow: hidden;
+            font-weight: 400;
+            font-family: 'poppins';
+        }
+        .btn1{
+            color: #fff;
+        }
+        .btn1:hover{
+            color: #14b8a6;
+        }
+
+        .btn::before{
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #14b8a6;
+            z-index: -1;
+            transition: 0.8s;
+        }
+        .btn1::before{
+            bottom: 0;
+            border-radius: 50% 50% 0 0;
+        }
+        .btn1::before{
+            height: 180%;
+        }
+        .btn1:hover::before{
+            height: 0;
+        }
       </style>
         <style type="text/tailwindcss">
             @layer utilities {
@@ -175,7 +263,7 @@
 
 </head>
 <body>
-    <nav class="fixed top-0 left-0 bg-white w-full shadow z-50 dark:bg-dark">
+    <nav class="nav-animasi fixed top-0 left-0 bg-white w-full shadow z-50 dark:bg-dark">
         <div class="container m-auto flex justify-between items-center text-gray-700">
             <h1 class="pl-8 py-4 text-xl font-bold text-primary dark:text-primary mr-20 mn:mr-28">Dirannn</h1>
             <ul class="hidden md:flex items-center pr-10 text-base font-semibold cursor-pointer dark:text-white">
@@ -185,7 +273,7 @@
                 <a href="#blog"><li class="hover:text-teal-500 py-4 px-6 transition-all duration-300 font-poppins font-light">Blog</li></a>
                 <a href="#skill"><li class="hover:text-teal-500 py-4 px-6 transition-all duration-300 font-poppins font-light">Skill</li></a>
                 <a href="#contact"><li class="hover:text-teal-500 py-4 px-6 transition-all duration-300 font-poppins font-light">Contact</li></a>
-                <li class="flex items-center pl-8">
+                <li class="flex items-center">
                     <div class="flex">
                         <span class="mr-2 text-sm text-slate-500 transition duration-300 hover:text-teal-500"><ion-icon name="sunny" class="text-lg relative top-[2px] dark:text-white"></ion-icon></span>
                         <input type="checkbox" class="hidden" id="dark-toggle">
@@ -208,7 +296,7 @@
                 </label>
                 <span class="ml-2 text-sm text-slate-500 hover:text-teal-500 transition duration-300"><ion-icon name="moon" class="relative top-[2.5px] text-base dark:text-white"></ion-icon></span>
             </div>
-            <button class="block md:hidden py-3 px-4 mr-2 rounded focus:outline-none hover:bg-teal-500 transition-all duration-300 group">  
+            <button class="block md:hidden py-3 px-4 mr-2 rounded focus:outline-none border-none hover:bg-teal-500 transition-all duration-300 group">  
                 <div class="w-5 h-1 bg-black mb-1 dark:bg-white"></div>
                 <div class="w-5 h-1 bg-black mb-1  dark:bg-white"></div>
                 <div class="w-5 h-1 bg-black dark:bg-white"></div>
@@ -227,10 +315,10 @@
             </button>
         </div>
     </nav>
-    <section id="home" class="pt-36 lg:pt-20 dark:bg-dark">
+    <section id="home" class="pt-36 lg:pt-20 dark:bg-dark ">
         <div class="container">
             <div class="flex flex-wrap">
-                <div class="w-full self-center px-4 lg:w-1/2">
+                <div class="text-container w-full self-center px-4 lg:w-1/2">
                     <h1 class="text-base text-teal-500 md:text-xl font-poppins font-light">Hallow semua 👋, Saya <span class="block font-bold text-slate-800 text-4xl mt-1 lg:text-5xl dark:text-white transition duration-300">Dirannn</span></h1>
                     <div class="animasi-text my-2 font-poppins">
                         <div class="" id="animasi">
@@ -238,11 +326,18 @@
                         </div>
                     </div>
                     <p class=" text-secondary mb-10 leading-relaxed font-poppins font-light">My first project created using <span class="text-primary font-bold">tailwindcss</span></p>
-                    <a href="#" class="text-base bg-teal-500 py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out text-white">Hubungi saya</a>             
+                    <form action="#contact">
+                        <button class="btn btn1 py-3 px-8 rounded-full dark:z-50">Hubungi saya</button>
+                    </form>           
                 </div>
-                <div class="self-end w-full px-4 lg:w-1/2">
-                    <div class=" relative mt-10 lg:mt-9 lg:right-0">
-                        <img src="gambar/webdevelopment-removebg-preview.png" alt="" class="animasi-image max-w-full mx-auto">
+                <div class="image-container self-end w-full px-4 lg:w-1/2">
+                    <div class="animasi-image relative mt-10 lg:mt-9 lg:right-0">
+                        <img src="gambar/webdevelopment-removebg-preview.png" alt="" class="max-w-full mx-auto dark:z-50">
+                        <span class="absolute -bottom-12 -z-10 left-1/2 -translate-x-1/2 lg:bottom-0 transform scale-110 dark:hidden">
+                            <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg " >
+                                <path fill="#14b8a6" d="M53.5,-57.2C65,-42,66.9,-21,67.1,0.2C67.3,21.4,65.7,42.8,54.2,51.2C42.8,59.6,21.4,55.1,2.4,52.7C-16.6,50.3,-33.2,50,-47.2,41.6C-61.1,33.2,-72.5,16.6,-72.5,0C-72.4,-16.5,-61,-33,-47,-48.2C-33,-63.3,-16.5,-77.1,2.3,-79.4C21,-81.6,42,-72.3,53.5,-57.2Z" transform="translate(100 100)"  />
+                              </svg>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -265,6 +360,7 @@
                     <a href="" class="w-9 h-9 mr-3 dark:text-white rounded-full flex justify-center items-center border border-secondary hover:border-primary hover:bg-primary hover:text-white"><ion-icon name="logo-instagram"></ion-icon></a>
                     <a href="" class="w-9 h-9 mr-3 dark:text-white rounded-full flex justify-center items-center border border-secondary hover:border-primary hover:bg-primary hover:text-white"><ion-icon name="logo-twitter"></ion-icon></a>
                     <a href="" class="w-9 h-9 mr-3 dark:text-white rounded-full flex justify-center items-center border border-secondary hover:border-primary hover:bg-primary hover:text-white"><ion-icon name="logo-facebook"></ion-icon></a>
+                    <a href="" class="w-9 h-9 mr-3 dark:text-white rounded-full flex justify-center items-center border border-secondary hover:border-primary hover:bg-primary hover:text-white"><ion-icon name="logo-tiktok"></ion-icon></a>
                 </div>
                 </div>
             </div>
@@ -326,7 +422,7 @@
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800">
                         <img src="gambar/blog/programming.jpg" class="w-full" alt="">
                         <div class="py-8 px-6">
-                            <h3 class="font-semibold mb-3 text-xl text-black hover:text-teal-500 truncate dark:text-white">tips belajar Programming</h3>
+                            <h3 class="font-semibold mb-3 text-xl text-black hover:text-teal-500 truncate dark:text-white">Tips belajar Programming</h3>
                             <p class="font-medium text-base text-teal-500 mb-6">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad, corporis?</p>
                             <a href="https://www.youtube.com/@sandhikagalihWPU" class="font-medium text-sm text-white bg-teal-500 py-3 px-6 rounded-lg hover:opacity-80">baca selengkapnya</a>
                         </div>
@@ -469,6 +565,7 @@
                     <a href="" class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-secondary text-white hover:border-primary hover:bg-primary"><ion-icon name="logo-instagram"></ion-icon></a>
                     <a href="" class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-secondary text-white hover:border-primary hover:bg-primary"><ion-icon name="logo-twitter"></ion-icon></a>
                     <a href="" class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-secondary text-white hover:border-primary hover:bg-primary"><ion-icon name="logo-facebook"></ion-icon></a>
+                    <a href="" class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-secondary text-white hover:border-primary hover:bg-primary"><ion-icon name="logo-tiktok"></ion-icon></a>
                 </div>
                 <p class=" text-sm text-slate-500 text-center font-poppins font-light">Dibuat oleh <span class="text-teal-500 font-semibold">Naffa Rido Diranda</span>, menggunakan <span class="font-bold text-teal-500">Tailwind Css 3</span></p>
             </div>
@@ -493,7 +590,7 @@
 };
 
 const darkToggle = document.querySelector('#dark-toggle');
-const html = document.querySelector('html'); 
+const html = document.querySelector('html');  
 const animasiTeks = document.querySelector('#animasi');
 
 darkToggle.addEventListener('click', function() {
@@ -505,7 +602,6 @@ darkToggle.addEventListener('click', function() {
         animasiTeks.classList.remove('animasi-text-dark');
     }
 });
-
 const darkToggle1 = document.querySelector('#dark-toggle-2');
 const html1 = document.querySelector('html'); 
 const animasiTeks1 = document.querySelector('#animasi');
