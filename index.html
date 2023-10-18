@@ -135,6 +135,7 @@
 
       .animasi-image{
         animation: mantul 2s infinite;
+        animation-delay: 3s;
       }
       
       @keyframes mantul {
@@ -150,6 +151,7 @@
         transform: translateX(12px);
       }
 
+      
       .text-container{
             animation: animasiContainer 3s ease ;
         }
@@ -244,11 +246,11 @@
               #dark-toggle:checked ~ label div.toggle-circle {
         transform: translateX(12px); 
         background-color: black;
-        content: url(gambar/blog/63f9e710789ed.jpg);
+        content: url(gambar/blog/bulan.png);
       }
       #dark-toggle-2:checked ~ label div.toggle-circle-2 {
         transform: translateX(12px);
-        content: url(gambar/blog/63f9e710789ed.jpg);
+        content: url(gambar/blog/bulan.png);
         background-color: black;
       }
       .toggle-circle-2{
@@ -471,7 +473,7 @@
                     <img src="gambar/logoBahasaPemrograman/tailwind.png" alt="" class="hover:scale-110 duration-300">
                     <h3 class="text-center text-2xl font-semibold font-poppins">Tailwind Css</h3>
                 </div>               
-                 <div class="w-32 h-40 lg:w-52 lg:h-60 lg:m-5 p-4 bg-white shadow-xl border border-slate-200 rounded-xl m-3" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500" data-aos-delay="800" data-aos-offset="10">
+                 <div class="w-32 h-40 lg:w-52 lg:h-60 lg:m-5 p-4 bg-white shadow-xl border border-slate-200 rounded-xl m-3" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500" data-aos-delay="1000">
                     <img src="gambar/logoBahasaPemrograman/github-mark.png" alt="" class=" hover:scale-110 duration-300">
                     <h3 class="text-center text-2xl font-semibold font-poppins pt-2">GitHub</h3>
                 </div>
@@ -489,29 +491,22 @@
                 </div>
             </div>
             <form>
-                <div class="w-full lg:w-2/3 lg:mx-auto">
+                <div class="w-full lg:w-2/3 lg:mx-auto" data-aos="fade-up"
+                data-aos-duration="3000">
 
-                    <div class="w-full mb-8 px-4"  data-aos="fade-down"
-                    data-aos-easing="linear"
-                    data-aos-duration="1000" data-aos-delay="100">
+                    <div class="w-full mb-8 px-4">
                         <label for="name" class="text-base text-teal-500 font-bold">Nama</label>
                         <input type="text" id="name" class="w-full bg-slate-200 text-black rounded-md p-3 focus:outline-none focus:ring-teal-500 focus:ring-1 focus:border-teal-500">
                     </div>
-                    <div class="w-full mb-8 px-4"  data-aos="fade-down"
-                    data-aos-easing="linear"
-                    data-aos-duration="1000" data-aos-delay="300">
+                    <div class="w-full mb-8 px-4">
                     <label for="email" class="text-base text-teal-500 font-bold">Email</label>
                     <input type="email" id="email" class="w-full bg-slate-200 text-black rounded-md p-3 focus:outline-none focus:ring-teal-500 focus:ring-1 focus:border-teal-500">
                 </div>
-                <div class="w-full mb-8 px-4"  data-aos="fade-down"
-                data-aos-easing="linear"
-                data-aos-duration="1000" data-aos-delay="500">
+                <div class="w-full mb-8 px-4">
                     <label for="message" class="text-base text-teal-500 font-bold">Pesan</label>
                     <textarea type="text" id="name" class="w-full bg-slate-200 text-black rounded-md p-3 focus:outline-none focus:ring-teal-500 focus:ring-1 focus:border-teal-500 h-32"></textarea>
                 </div>
-                <div class="w-full"  data-aos="fade-down"
-                data-aos-easing="linear"
-                data-aos-duration="700" data-aos-delay="600" data-aos-offset="50">
+                <div class="w-full">
                     <button class="text-base font-semibold text-white bg-teal-500 py-3 px-8 rounded-full w-full hover:opacity-80 hover:shadow-lg transition duration-500">Kirim</button>
                 </div>
             </div>
@@ -578,7 +573,9 @@
 <!-- gsap -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> 
 <script>
-    AOS.init();
+    AOS.init({
+        once: true,                     
+    });
     gsap.from('.image-container', {duration: 3, y:-100, opacity: 0, ease:'bounce',})
 </script>
 <script>
